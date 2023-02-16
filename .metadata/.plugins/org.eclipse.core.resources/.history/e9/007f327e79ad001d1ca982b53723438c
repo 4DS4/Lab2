@@ -1,0 +1,17 @@
+/*
+ * Problem3.h
+ *
+ *  Created on: Feb. 15, 2023
+ *      Author: markanda
+ */
+
+#ifndef PROBLEM3_H_
+#define PROBLEM3_H_
+
+class Problem3 {
+public:
+	Problem3();
+	virtual ~Problem3();
+};
+
+#endif /* PROBLEM3_H_ */

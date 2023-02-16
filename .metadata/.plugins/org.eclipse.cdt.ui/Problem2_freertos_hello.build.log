@@ -1,0 +1,38 @@
+15:59:15 **** Incremental Build of configuration Debug for project Problem2_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -D__REDLIB__ -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem2_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+../source/freertos_hello.c: In function 'main':
+../source/freertos_hello.c:81:2: error: unknown type name 'SemaphoreHandle_t'
+   81 |  SemaphoreHandle_t* semaphores = (SemaphoreHandle_t*) malloc(3 * sizeof(SemaphoreHandle_t));
+      |  ^~~~~~~~~~~~~~~~~
+../source/freertos_hello.c:81:35: error: 'SemaphoreHandle_t' undeclared (first use in this function)
+   81 |  SemaphoreHandle_t* semaphores = (SemaphoreHandle_t*) malloc(3 * sizeof(SemaphoreHandle_t));
+      |                                   ^~~~~~~~~~~~~~~~~
+../source/freertos_hello.c:81:35: note: each undeclared identifier is reported only once for each function it appears in
+../source/freertos_hello.c:81:53: error: expected expression before ')' token
+   81 |  SemaphoreHandle_t* semaphores = (SemaphoreHandle_t*) malloc(3 * sizeof(SemaphoreHandle_t));
+      |                                                     ^
+../source/freertos_hello.c:82:18: warning: implicit declaration of function 'xSemaphoreCreateBinary' [-Wimplicit-function-declaration]
+   82 |  semaphores[0] = xSemaphoreCreateBinary(); //Producer1_sem
+      |                  ^~~~~~~~~~~~~~~~~~~~~~
+../source/freertos_hello.c:84:18: warning: implicit declaration of function 'xSemaphoreCreateCounting' [-Wimplicit-function-declaration]
+   84 |  semaphores[2] = xSemaphoreCreateCounting(2, 2); //consumer_sem
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~
+../source/freertos_hello.c:85:23: error: 'producer_sem' undeclared (first use in this function); did you mean 'producer_queue'?
+   85 |  status = xTaskCreate(producer_sem, "producer", 200, (void*)semaphores, 2, NULL);
+      |                       ^~~~~~~~~~~~
+      |                       producer_queue
+../source/freertos_hello.c:91:23: error: 'consumer1_sem' undeclared (first use in this function)
+   91 |  status = xTaskCreate(consumer1_sem, "consumer", 200, (void*)semaphores, 2, NULL);
+      |                       ^~~~~~~~~~~~~
+../source/freertos_hello.c:97:23: error: 'consumer2_sem' undeclared (first use in this function)
+   97 |  status = xTaskCreate(consumer2_sem, "consumer", 200, (void*)semaphores, 2, NULL);
+      |                       ^~~~~~~~~~~~~
+make[1]: *** [source/subdir.mk:23: source/freertos_hello.o] Error 1
+make: *** [makefile:48: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+
+15:59:15 Build Failed. 8 errors, 2 warnings. (took 507ms)
+

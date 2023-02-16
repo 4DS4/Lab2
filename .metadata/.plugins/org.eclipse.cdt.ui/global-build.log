@@ -1,0 +1,286 @@
+16:57:20 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+In file included from ../source/freertos_hello.c:14:
+../source/freertos_hello.c: In function 'consumer1_sem':
+C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include/semphr.h:296:74: warning: passing argument 1 of 'xQueueSemaphoreTake' from incompatible pointer type [-Wincompatible-pointer-types]
+  296 | #define xSemaphoreTake( xSemaphore, xBlockTime )    xQueueSemaphoreTake( ( xSemaphore ), ( xBlockTime ) )
+      |                                                                          ^~~~~~~~~~~~~~
+      |                                                                          |
+      |                                                                          struct QueueDefinition **
+../source/freertos_hello.c:57:11: note: in expansion of macro 'xSemaphoreTake'
+   57 |  status = xSemaphoreTake(semaphore, portMAX_DELAY);
+      |           ^~~~~~~~~~~~~~
+In file included from ../source/freertos_hello.c:12:
+C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include/queue.h:1462:47: note: expected 'QueueHandle_t' {aka 'struct QueueDefinition *'} but argument is of type 'struct QueueDefinition **'
+ 1462 | BaseType_t xQueueSemaphoreTake( QueueHandle_t xQueue,
+      |                                 ~~~~~~~~~~~~~~^~~~~~
+In file included from ../source/freertos_hello.c:14:
+../source/freertos_hello.c: In function 'consumer2_sem':
+C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include/semphr.h:296:74: warning: passing argument 1 of 'xQueueSemaphoreTake' from incompatible pointer type [-Wincompatible-pointer-types]
+  296 | #define xSemaphoreTake( xSemaphore, xBlockTime )    xQueueSemaphoreTake( ( xSemaphore ), ( xBlockTime ) )
+      |                                                                          ^~~~~~~~~~~~~~
+      |                                                                          |
+      |                                                                          struct QueueDefinition **
+../source/freertos_hello.c:72:11: note: in expansion of macro 'xSemaphoreTake'
+   72 |  status = xSemaphoreTake(semaphore, portMAX_DELAY);
+      |           ^~~~~~~~~~~~~~
+In file included from ../source/freertos_hello.c:12:
+C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include/queue.h:1462:47: note: expected 'QueueHandle_t' {aka 'struct QueueDefinition *'} but argument is of type 'struct QueueDefinition **'
+ 1462 | BaseType_t xQueueSemaphoreTake( QueueHandle_t xQueue,
+      |                                 ~~~~~~~~~~~~~~^~~~~~
+../source/freertos_hello.c:78:18: warning: implicit declaration of function 'toupper' [-Wimplicit-function-declaration]
+   78 |  char upper[] =  toupper(&str);
+      |                  ^~~~~~~
+../source/freertos_hello.c:78:18: error: invalid initializer
+In file included from ../source/freertos_hello.c:14:
+../source/freertos_hello.c: In function 'main':
+C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include/semphr.h:1023:71: warning: initialization of 'struct QueueDefinition **' from incompatible pointer type 'QueueHandle_t' {aka 'struct QueueDefinition *'} [-Wincompatible-pointer-types]
+ 1023 |     #define xSemaphoreCreateCounting( uxMaxCount, uxInitialCount )    xQueueCreateCountingSemaphore( ( uxMaxCount ), ( uxInitialCount ) )
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../source/freertos_hello.c:91:34: note: in expansion of macro 'xSemaphoreCreateCounting'
+   91 |  SemaphoreHandle_t* semaphores = xSemaphoreCreateCounting(2, 2); //Producer_sem
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~
+make[1]: *** [source/subdir.mk:23: source/freertos_hello.o] Error 1
+make: *** [makefile:48: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+17:00:19 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+In file included from ../source/freertos_hello.c:14:
+../source/freertos_hello.c: In function 'consumer1_sem':
+C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include/semphr.h:296:74: warning: passing argument 1 of 'xQueueSemaphoreTake' from incompatible pointer type [-Wincompatible-pointer-types]
+  296 | #define xSemaphoreTake( xSemaphore, xBlockTime )    xQueueSemaphoreTake( ( xSemaphore ), ( xBlockTime ) )
+      |                                                                          ^~~~~~~~~~~~~~
+      |                                                                          |
+      |                                                                          struct QueueDefinition **
+../source/freertos_hello.c:57:11: note: in expansion of macro 'xSemaphoreTake'
+   57 |  status = xSemaphoreTake(semaphore, portMAX_DELAY);
+      |           ^~~~~~~~~~~~~~
+In file included from ../source/freertos_hello.c:12:
+C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include/queue.h:1462:47: note: expected 'QueueHandle_t' {aka 'struct QueueDefinition *'} but argument is of type 'struct QueueDefinition **'
+ 1462 | BaseType_t xQueueSemaphoreTake( QueueHandle_t xQueue,
+      |                                 ~~~~~~~~~~~~~~^~~~~~
+In file included from ../source/freertos_hello.c:14:
+../source/freertos_hello.c: In function 'consumer2_sem':
+C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include/semphr.h:296:74: warning: passing argument 1 of 'xQueueSemaphoreTake' from incompatible pointer type [-Wincompatible-pointer-types]
+  296 | #define xSemaphoreTake( xSemaphore, xBlockTime )    xQueueSemaphoreTake( ( xSemaphore ), ( xBlockTime ) )
+      |                                                                          ^~~~~~~~~~~~~~
+      |                                                                          |
+      |                                                                          struct QueueDefinition **
+../source/freertos_hello.c:72:11: note: in expansion of macro 'xSemaphoreTake'
+   72 |  status = xSemaphoreTake(semaphore, portMAX_DELAY);
+      |           ^~~~~~~~~~~~~~
+In file included from ../source/freertos_hello.c:12:
+C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include/queue.h:1462:47: note: expected 'QueueHandle_t' {aka 'struct QueueDefinition *'} but argument is of type 'struct QueueDefinition **'
+ 1462 | BaseType_t xQueueSemaphoreTake( QueueHandle_t xQueue,
+      |                                 ~~~~~~~~~~~~~~^~~~~~
+../source/freertos_hello.c:78:18: warning: implicit declaration of function 'toupper' [-Wimplicit-function-declaration]
+   78 |  char upper[] =  toupper(str);
+      |                  ^~~~~~~
+../source/freertos_hello.c:78:18: error: invalid initializer
+make[1]: *** [source/subdir.mk:23: source/freertos_hello.o] Error 1
+make: *** [makefile:48: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+17:04:08 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+../source/freertos_hello.c: In function 'consumer2_sem':
+../source/freertos_hello.c:83:18: warning: implicit declaration of function 'toupper' [-Wimplicit-function-declaration]
+   83 |  char upper[] =  toupper(str);
+      |                  ^~~~~~~
+../source/freertos_hello.c:83:18: error: invalid initializer
+make[1]: *** [source/subdir.mk:23: source/freertos_hello.o] Error 1
+make: *** [makefile:48: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+17:07:57 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+../source/freertos_hello.c: In function 'consumer2_sem':
+../source/freertos_hello.c:84:7: error: 'i' undeclared (first use in this function)
+   84 |  for (i = 0; str[i]!='\0'; i++) {
+      |       ^
+../source/freertos_hello.c:84:7: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [source/subdir.mk:23: source/freertos_hello.o] Error 1
+make: *** [makefile:48: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+17:08:12 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+Finished building: ../source/freertos_hello.c
+ 
+Building target: Problem3_freertos_hello.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="Problem3_freertos_hello.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T Problem3_freertos_hello_Debug.ld -o "Problem3_freertos_hello.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_mk66f18.o  ./source/freertos_hello.o ./source/semihost_hardfault.o  ./freertos/freertos_kernel/portable/MemMang/heap_4.o  ./freertos/freertos_kernel/portable/GCC/ARM_CM4F/port.o  ./freertos/freertos_kernel/croutine.o ./freertos/freertos_kernel/event_groups.o ./freertos/freertos_kernel/list.o ./freertos/freertos_kernel/queue.o ./freertos/freertos_kernel/stream_buffer.o ./freertos/freertos_kernel/tasks.o ./freertos/freertos_kernel/timers.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ftfx_cache.o ./drivers/fsl_ftfx_controller.o ./drivers/fsl_ftfx_flash.o ./drivers/fsl_ftfx_flexnvm.o ./drivers/fsl_gpio.o ./drivers/fsl_lpuart.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./device/system_MK66F18.o  ./component/uart/fsl_adapter_uart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28536 B         2 MB      1.36%
+      SRAM_UPPER:       19144 B       192 KB      9.74%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: Problem3_freertos_hello.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Problem3_freertos_hello.axf"; # arm-none-eabi-objcopy -v -O binary "Problem3_freertos_hello.axf" "Problem3_freertos_hello.bin" ; # checksum -p MK66FN2M0xxx18 -d "Problem3_freertos_hello.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28504	     32	  19112	  47648	   ba20	Problem3_freertos_hello.axf
+ 
+17:09:05 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "Problem3_freertos_hello.axf"; # arm-none-eabi-objcopy -v -O binary "Problem3_freertos_hello.axf" "Problem3_freertos_hello.bin" ; # checksum -p MK66FN2M0xxx18 -d "Problem3_freertos_hello.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28504	     32	  19112	  47648	   ba20	Problem3_freertos_hello.axf
+ 
+17:11:27 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+Finished building: ../source/freertos_hello.c
+ 
+Building target: Problem3_freertos_hello.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="Problem3_freertos_hello.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T Problem3_freertos_hello_Debug.ld -o "Problem3_freertos_hello.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_mk66f18.o  ./source/freertos_hello.o ./source/semihost_hardfault.o  ./freertos/freertos_kernel/portable/MemMang/heap_4.o  ./freertos/freertos_kernel/portable/GCC/ARM_CM4F/port.o  ./freertos/freertos_kernel/croutine.o ./freertos/freertos_kernel/event_groups.o ./freertos/freertos_kernel/list.o ./freertos/freertos_kernel/queue.o ./freertos/freertos_kernel/stream_buffer.o ./freertos/freertos_kernel/tasks.o ./freertos/freertos_kernel/timers.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ftfx_cache.o ./drivers/fsl_ftfx_controller.o ./drivers/fsl_ftfx_flash.o ./drivers/fsl_ftfx_flexnvm.o ./drivers/fsl_gpio.o ./drivers/fsl_lpuart.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./device/system_MK66F18.o  ./component/uart/fsl_adapter_uart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28544 B         2 MB      1.36%
+      SRAM_UPPER:       19144 B       192 KB      9.74%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: Problem3_freertos_hello.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Problem3_freertos_hello.axf"; # arm-none-eabi-objcopy -v -O binary "Problem3_freertos_hello.axf" "Problem3_freertos_hello.bin" ; # checksum -p MK66FN2M0xxx18 -d "Problem3_freertos_hello.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28512	     32	  19112	  47656	   ba28	Problem3_freertos_hello.axf
+ 
+17:15:02 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+Finished building: ../source/freertos_hello.c
+ 
+Building target: Problem3_freertos_hello.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="Problem3_freertos_hello.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T Problem3_freertos_hello_Debug.ld -o "Problem3_freertos_hello.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_mk66f18.o  ./source/freertos_hello.o ./source/semihost_hardfault.o  ./freertos/freertos_kernel/portable/MemMang/heap_4.o  ./freertos/freertos_kernel/portable/GCC/ARM_CM4F/port.o  ./freertos/freertos_kernel/croutine.o ./freertos/freertos_kernel/event_groups.o ./freertos/freertos_kernel/list.o ./freertos/freertos_kernel/queue.o ./freertos/freertos_kernel/stream_buffer.o ./freertos/freertos_kernel/tasks.o ./freertos/freertos_kernel/timers.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ftfx_cache.o ./drivers/fsl_ftfx_controller.o ./drivers/fsl_ftfx_flash.o ./drivers/fsl_ftfx_flexnvm.o ./drivers/fsl_gpio.o ./drivers/fsl_lpuart.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./device/system_MK66F18.o  ./component/uart/fsl_adapter_uart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28496 B         2 MB      1.36%
+      SRAM_UPPER:       19144 B       192 KB      9.74%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: Problem3_freertos_hello.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Problem3_freertos_hello.axf"; # arm-none-eabi-objcopy -v -O binary "Problem3_freertos_hello.axf" "Problem3_freertos_hello.bin" ; # checksum -p MK66FN2M0xxx18 -d "Problem3_freertos_hello.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28464	     32	  19112	  47608	   b9f8	Problem3_freertos_hello.axf
+ 
+17:16:21 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+../source/freertos_hello.c: In function 'consumer2_sem':
+../source/freertos_hello.c:94:28: warning: passing argument 1 of 'toupper' makes integer from pointer without a cast [-Wint-conversion]
+   94 |   PRINTF("%s\r\n", toupper(str));
+      |                            ^~~
+      |                            |
+      |                            char *
+In file included from ../source/freertos_hello.c:23:
+c:\nxp\mcuxpressoide_11.6.1_8255\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.6.1.202207200623\tools\redlib\include\ctype.h:116:24: note: expected 'int' but argument is of type 'char *'
+  116 | extern int toupper(int __c);
+      |                    ~~~~^~~
+Finished building: ../source/freertos_hello.c
+ 
+Building target: Problem3_freertos_hello.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="Problem3_freertos_hello.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T Problem3_freertos_hello_Debug.ld -o "Problem3_freertos_hello.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_mk66f18.o  ./source/freertos_hello.o ./source/semihost_hardfault.o  ./freertos/freertos_kernel/portable/MemMang/heap_4.o  ./freertos/freertos_kernel/portable/GCC/ARM_CM4F/port.o  ./freertos/freertos_kernel/croutine.o ./freertos/freertos_kernel/event_groups.o ./freertos/freertos_kernel/list.o ./freertos/freertos_kernel/queue.o ./freertos/freertos_kernel/stream_buffer.o ./freertos/freertos_kernel/tasks.o ./freertos/freertos_kernel/timers.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ftfx_cache.o ./drivers/fsl_ftfx_controller.o ./drivers/fsl_ftfx_flash.o ./drivers/fsl_ftfx_flexnvm.o ./drivers/fsl_gpio.o ./drivers/fsl_lpuart.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./device/system_MK66F18.o  ./component/uart/fsl_adapter_uart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28520 B         2 MB      1.36%
+      SRAM_UPPER:       19144 B       192 KB      9.74%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: Problem3_freertos_hello.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Problem3_freertos_hello.axf"; # arm-none-eabi-objcopy -v -O binary "Problem3_freertos_hello.axf" "Problem3_freertos_hello.bin" ; # checksum -p MK66FN2M0xxx18 -d "Problem3_freertos_hello.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28488	     32	  19112	  47632	   ba10	Problem3_freertos_hello.axf
+ 
+17:18:10 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+Finished building: ../source/freertos_hello.c
+ 
+Building target: Problem3_freertos_hello.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="Problem3_freertos_hello.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T Problem3_freertos_hello_Debug.ld -o "Problem3_freertos_hello.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_mk66f18.o  ./source/freertos_hello.o ./source/semihost_hardfault.o  ./freertos/freertos_kernel/portable/MemMang/heap_4.o  ./freertos/freertos_kernel/portable/GCC/ARM_CM4F/port.o  ./freertos/freertos_kernel/croutine.o ./freertos/freertos_kernel/event_groups.o ./freertos/freertos_kernel/list.o ./freertos/freertos_kernel/queue.o ./freertos/freertos_kernel/stream_buffer.o ./freertos/freertos_kernel/tasks.o ./freertos/freertos_kernel/timers.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ftfx_cache.o ./drivers/fsl_ftfx_controller.o ./drivers/fsl_ftfx_flash.o ./drivers/fsl_ftfx_flexnvm.o ./drivers/fsl_gpio.o ./drivers/fsl_lpuart.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./device/system_MK66F18.o  ./component/uart/fsl_adapter_uart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28496 B         2 MB      1.36%
+      SRAM_UPPER:       19144 B       192 KB      9.74%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: Problem3_freertos_hello.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Problem3_freertos_hello.axf"; # arm-none-eabi-objcopy -v -O binary "Problem3_freertos_hello.axf" "Problem3_freertos_hello.bin" ; # checksum -p MK66FN2M0xxx18 -d "Problem3_freertos_hello.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28464	     32	  19112	  47608	   b9f8	Problem3_freertos_hello.axf
+ 
+17:18:24 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+Finished building: ../source/freertos_hello.c
+ 
+Building target: Problem3_freertos_hello.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="Problem3_freertos_hello.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T Problem3_freertos_hello_Debug.ld -o "Problem3_freertos_hello.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_mk66f18.o  ./source/freertos_hello.o ./source/semihost_hardfault.o  ./freertos/freertos_kernel/portable/MemMang/heap_4.o  ./freertos/freertos_kernel/portable/GCC/ARM_CM4F/port.o  ./freertos/freertos_kernel/croutine.o ./freertos/freertos_kernel/event_groups.o ./freertos/freertos_kernel/list.o ./freertos/freertos_kernel/queue.o ./freertos/freertos_kernel/stream_buffer.o ./freertos/freertos_kernel/tasks.o ./freertos/freertos_kernel/timers.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ftfx_cache.o ./drivers/fsl_ftfx_controller.o ./drivers/fsl_ftfx_flash.o ./drivers/fsl_ftfx_flexnvm.o ./drivers/fsl_gpio.o ./drivers/fsl_lpuart.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./device/system_MK66F18.o  ./component/uart/fsl_adapter_uart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28496 B         2 MB      1.36%
+      SRAM_UPPER:       19144 B       192 KB      9.74%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: Problem3_freertos_hello.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Problem3_freertos_hello.axf"; # arm-none-eabi-objcopy -v -O binary "Problem3_freertos_hello.axf" "Problem3_freertos_hello.bin" ; # checksum -p MK66FN2M0xxx18 -d "Problem3_freertos_hello.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28464	     32	  19112	  47608	   b9f8	Problem3_freertos_hello.axf
+ 
+17:19:15 **** Incremental Build of configuration Debug for project Problem3_freertos_hello ****
+make -r -j4 all 
+Building file: ../source/freertos_hello.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=gnu99 -DCPU_MK66FN2M0VMD18 -DCPU_MK66FN2M0VMD18_cm4 -DFRDM_K66F -DFREEDOM -DSERIAL_PORT_TYPE_UART=1 -DSDK_OS_FREE_RTOS -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\source" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\drivers" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\device" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\utilities" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\uart" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\serial_manager" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\component\lists" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\CMSIS" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\include" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\freertos\freertos_kernel\portable\GCC\ARM_CM4F" -I"C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\board" -O0 -fno-common -g3 -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/freertos_hello.d" -MT"source/freertos_hello.o" -MT"source/freertos_hello.d" -o "source/freertos_hello.o" "../source/freertos_hello.c"
+Finished building: ../source/freertos_hello.c
+ 
+Building target: Problem3_freertos_hello.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="Problem3_freertos_hello.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T Problem3_freertos_hello_Debug.ld -o "Problem3_freertos_hello.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_mk66f18.o  ./source/freertos_hello.o ./source/semihost_hardfault.o  ./freertos/freertos_kernel/portable/MemMang/heap_4.o  ./freertos/freertos_kernel/portable/GCC/ARM_CM4F/port.o  ./freertos/freertos_kernel/croutine.o ./freertos/freertos_kernel/event_groups.o ./freertos/freertos_kernel/list.o ./freertos/freertos_kernel/queue.o ./freertos/freertos_kernel/stream_buffer.o ./freertos/freertos_kernel/tasks.o ./freertos/freertos_kernel/timers.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ftfx_cache.o ./drivers/fsl_ftfx_controller.o ./drivers/fsl_ftfx_flash.o ./drivers/fsl_ftfx_flexnvm.o ./drivers/fsl_gpio.o ./drivers/fsl_lpuart.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./device/system_MK66F18.o  ./component/uart/fsl_adapter_uart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28520 B         2 MB      1.36%
+      SRAM_UPPER:       19144 B       192 KB      9.74%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: Problem3_freertos_hello.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Problem3_freertos_hello.axf"; # arm-none-eabi-objcopy -v -O binary "Problem3_freertos_hello.axf" "Problem3_freertos_hello.bin" ; # checksum -p MK66FN2M0xxx18 -d "Problem3_freertos_hello.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28488	     32	  19112	  47632	   ba10	Problem3_freertos_hello.axf
+ 

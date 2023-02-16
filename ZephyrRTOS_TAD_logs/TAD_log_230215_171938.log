@@ -1,0 +1,13 @@
+"Task Aware Debugger for GDB" version 11.6.1 (202207200623)
+(c) 2016-2022 NXP Semiconductors, Inc.
+==================================
+17:19:14.104 INFO: [ZephyrRTOS] C:\Users\markanda\Documents\4DS4\Lab2\Problem3_freertos_hello\Debug\.config file could not be read
+17:19:14.104 INFO: [TadModel] DSF session ID 133 has started.
+17:19:20.316 INFO: [TadState] TAD state changed: DEBUG_STARTED -> DEBUG_INIT_0 (SUSPENDED, USER_REQUEST)
+17:19:20.390 INFO: [TadState] TAD state changed: DEBUG_INIT_0 -> DEBUG_INIT_1 (SUSPENDED, USER_REQUEST)
+17:19:22.855 INFO: [TadState] TAD state changed: DEBUG_INIT_1 -> DEBUG_SUSPENDED (RESUMED, USER_REQUEST)
+17:19:22.890 INFO: [TadState] TAD state changed: DEBUG_SUSPENDED -> DEBUG_SUSPENDED (SUSPENDED, BREAKPOINT)
+17:19:27.238 INFO: [TadState] TAD state changed: DEBUG_SUSPENDED -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+17:19:38.332 INFO: [TadState] TAD state changed: DEBUG_RESUMED -> READY (SUSPENDED, SIGNAL)
+17:19:38.402 INFO: [TadModel] DSF session ID 133 has ended.
+17:19:38.402 INFO: [TadModel] DSF session ID 134 has ended.
