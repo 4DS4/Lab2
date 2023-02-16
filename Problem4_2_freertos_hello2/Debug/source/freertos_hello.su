@@ -1,0 +1,6 @@
+../source/freertos_hello.c:45:6:producer_event	40	static
+../source/freertos_hello.c:111:6:consumer_left_event	32	static
+../source/freertos_hello.c:128:6:consumer_down_event	32	static
+../source/freertos_hello.c:145:6:consumer_right_event	32	static
+../source/freertos_hello.c:162:6:consumer_up_event	32	static
+../source/freertos_hello.c:179:5:main	32	static
